@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 프로젝트의 구성 아파치의 maven 프로젝트 구성-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 프로젝트 개발 버전 -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 사용할 웹사이트 주소 -->
+    <groupId>com.test</groupId>
+
+    <!-- 프로젝트명 demo -->
+    <artifactId>demo</artifactId>
+
+    <!-- 개발버전 -->
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 프로젝트명 -->
+    <name>demo</name>
+
+    <!-- 배포파일 형태 war(프로그램 압축)-톰캣서버구동, jar(서버+프로그램 압축)-JRE -->
+    <packaging>war</packaging>
+
+    <!-- 속성 (환경설정) -->
+    <properties>
+        <!-- 프로그램의 문자셋 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 컴파일러 버전 -->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <junit.version>5.8.1</junit.version>
+    </properties>
+
+    <!-- 추가 라이브러리(주입식) -->
+    <!-- https://mvnrepository.com/ -->
+    <!-- 검색은 artifactId로 검색, 세부내용은 groupId 조회 -->
+    <dependencies> <!-- 라이브러리 그룹 -->
+        <!-- 서블릿에 필요한 라이브러리 -->
+        <dependency> <!-- 개별적 라이브러리 -->
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- 테스트에 필요한 라이브러리 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
